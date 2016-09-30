@@ -8,6 +8,8 @@ This example demonstrates the following:
 
 * Node.js results app voting for Cats/dogs running on Windows Containers.
 
+None of the applications in the new voting app would access a database directly whether SQL Server, mysql or postgres. The ASP.NET application acts as a gateway for for voting.
+
 Caveats:
 
 * Linking between containers is not working on Windows 10, so docker-compose.yml is of little use
