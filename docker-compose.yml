@@ -6,13 +6,13 @@ services:
     - "1433:1433"
     environment:
     - sa_password=7?107=uoVzejpVeIN39
-  voting:
-    build:
-      context: "./src/"
-    ports:
-      - "80:80"
-    depends_on:
-      - mssql16
+  # voting:
+  #   build:
+  #     context: "./src/"
+  #   ports:
+  #     - "80:80"
+  #   depends_on:
+  #     - mssql16
 
 networks:
   default:

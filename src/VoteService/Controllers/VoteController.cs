@@ -89,12 +89,12 @@ namespace VoteService.Controllers
                 var command = connection.CreateCommand();
                 try
                 {
-                    command.CommandText = "insert into votes (id, vote) values('" + voteid + "','" + vote + "' );";
+                    command.CommandText = "insert into Votes.dbo.votes (id, vote) values('" + voteid + "','" + vote + "' );";
                     result = (int)command.ExecuteNonQuery();
                 }
                 catch
                 {
-                    command.CommandText = "update votes set vote = '" + vote + "' where id='" + voteid + "'";
+                    command.CommandText = "update Votes.dbo.votes set vote = '" + vote + "' where id='" + voteid + "'";
                     result = (int)command.ExecuteNonQuery();
                 }
             }
