@@ -1,6 +1,6 @@
 version: "2"
 services:
-  mssql16:
+  mssql:
     image: microsoft/mssql-server-2016-express-windows:latest
     ports:
     - "1433:1433"
@@ -12,8 +12,18 @@ services:
   #   ports:
   #     - "80:80"
   #   depends_on:
-  #     - mssql16
-
+  #     - mssql
+  #   links:
+  #     - mssql
+  # result:
+  #   build:
+  #     context: "./result/"
+  #   environment:
+  #     - VOTE_SERVICE_URL=http://voting./v1/voting/
+  #   ports:
+  #     - "4000:4000"
+  #   depends_on:
+  #     - voting
 networks:
   default:
     external:
