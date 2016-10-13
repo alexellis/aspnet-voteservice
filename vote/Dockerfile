@@ -9,11 +9,13 @@ RUN $ErrorActionPreference = 'Stop'; \
 # Set the application directory
 WORKDIR /app
 
+RUN setx PATH '%PATH%;C:\\Python27\\'
+
 # Install our requirements.txt
 ADD requirements.txt /app/requirements.txt
 ENV PYTHONIOENCODING=UTF-8
-#RUN C:\\Python27\\python.exe -m pip install --upgrade pip
-RUN C:\\Python27\\python.exe -m pip install -r requirements.txt
+RUN C:\\Python27\\python.exe -m pip install --upgrade pip ; \
+    C:\\Python27\\python.exe -m pip install -r requirements.txt
 
 # Copy our code from the current folder to /app inside the container
 ADD . /app
@@ -22,4 +24,4 @@ ADD . /app
 EXPOSE 80
 
 # Define our command to be run when launching the container
-CMD ["gunicorn", "app:app", "-b", "0.0.0.0:80", "--log-file", "-", "--access-logfile", "-", "--workers", "4", "--keep-alive", "0"]
+CMD ["C:\\Python27\\python.exe", ".\\app.py"]
