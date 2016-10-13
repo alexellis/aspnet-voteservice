@@ -1,8 +1,6 @@
-# aspnet-voteservice
+# Docker Voting App on Windows Containers
 
-Docker Voting App on Windows Containers
-
-This solution uses ASP.NET and SQL Server 2016 to submit and query votes.
+This solution ports the Docker Voting App to Windows Containers using an ASP.NET WebAPI project connected to SQL Server 2016 to submit and query votes.
 
 ### Architecture
 
@@ -16,6 +14,12 @@ This example demonstrates the following:
 * Node.js results app voting for Cats/dogs running on Windows Containers.
 
 None of the applications in the new voting app would access a database directly whether SQL Server, mysql or postgres. The ASP.NET application acts as a gateway for for voting.
+
+### Getting started video
+
+Check out the video for a demo of launching and running the project:
+
+http://blog.alexellis.io/docker-does-sql2016-aspnet/
 
 Caveats:
 
