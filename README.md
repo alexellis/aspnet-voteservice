@@ -15,7 +15,7 @@ This example demonstrates the following:
 
 None of the applications in the new voting app would access a database directly whether SQL Server, mysql or postgres. The ASP.NET application acts as a gateway for for voting.
 
-Getting started video
+### Getting started video
 
 Check out the video for a demo of launching and running the project:
 
