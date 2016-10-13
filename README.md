@@ -15,6 +15,12 @@ This example demonstrates the following:
 
 None of the applications in the new voting app would access a database directly whether SQL Server, mysql or postgres. The ASP.NET application acts as a gateway for for voting.
 
+Getting started video
+
+Check out the video for a demo of launching and running the project:
+
+http://blog.alexellis.io/docker-does-sql2016-aspnet/
+
 Caveats:
 
 * Linking between containers is not working on Windows 10, so start the containers manually and link with environmental variables etc. Linking via DNS does work on Windows 2016 Server - if you happen to have a VM handy.
