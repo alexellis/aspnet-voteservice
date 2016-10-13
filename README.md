@@ -1,5 +1,12 @@
 # aspnet-voteservice
-Full ASP.NET for Windows and SQL Server backend
+
+Docker Voting App on Windows Containers
+
+This solution uses ASP.NET and SQL Server 2016 to submit and query votes.
+
+### Architecture
+
+![Windows Containers](http://blog.alexellis.io/content/images/2016/10/windows_containers.png)
 
 This example demonstrates the following:
 
@@ -12,10 +19,11 @@ None of the applications in the new voting app would access a database directly 
 
 Caveats:
 
-* Linking between containers is not working on Windows 10, so docker-compose.yml is of little use
-* IP addresses have to be manually hard-coded into web.config for ASP.NET because IIS does not allow Application Pools to read system or machine level environmental variables.
+* Linking between containers is not working on Windows 10, so start the containers manually and link with environmental variables etc. Linking via DNS does work on Windows 2016 Server - if you happen to have a VM handy.
+* IP addresses have to be manually hard-coded into web.config for ASP.NET because IIS does not allow Application Pools to read system or machine level environmental variables. This will not be an issue once DNS linking works on Windows 10.
 
 Wins:
 
 * Everything's on Windows Containers
 * ASP.NET for Windows works fully without any need to port existing business applications to Mono or .NET Core
+
