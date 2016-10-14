@@ -1,6 +1,10 @@
 # Using official python runtime base image
 FROM microsoft/windowsservercore
+
+MAINTAINER alexellis2@gmail.com
+
 SHELL ["powershell"]
+
 RUN $ErrorActionPreference = 'Stop'; \
     wget https://www.python.org/ftp/python/2.7.12/python-2.7.12.msi -OutFile python-2.7.12.msi ; \
     Start-Process python-2.7.12.msi -ArgumentList '/quiet InstallAllUsers=1 PrependPath=1' -Wait ; \

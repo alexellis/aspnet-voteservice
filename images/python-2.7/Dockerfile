@@ -1,4 +1,7 @@
 FROM microsoft/windowsservercore
+MAINTAINER alexellis2@gmail.com
+
+
 SHELL ["powershell"]
 
 RUN setx PATH '%PATH%;C:\\Python27\\'

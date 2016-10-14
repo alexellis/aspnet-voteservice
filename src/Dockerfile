@@ -1,4 +1,7 @@
 FROM microsoft/iis:10.0.14393.206
+MAINTAINER alexellis2@gmail.com
+
+
 SHELL ["powershell"]
 
 RUN Install-WindowsFeature NET-Framework-45-ASPNET ; \

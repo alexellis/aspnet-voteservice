@@ -1,5 +1,8 @@
 FROM msbuild:12
 
+MAINTAINER alexellis2@gmail.com
+
+
 RUN Install-WindowsFeature NET-Framework-45-ASPNET ; \
     Install-WindowsFeature Web-Asp-Net45
 

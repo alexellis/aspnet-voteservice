@@ -1,7 +1,8 @@
-# Using official python runtime base image
-# This is still a work-in progress. Local connections work but not remote ones over a NAT connection.
+# The MSI installs a service which is hard to override, so let's use a zip file.
 
 FROM microsoft/windowsservercore
+MAINTAINER alexellis2@gmail.com
+
 SHELL ["powershell"]
 RUN $ErrorActionPreference = 'Stop'; \
     wget https://github.com/MSOpenTech/redis/releases/download/win-3.2.100/Redis-x64-3.2.100.zip -OutFile Redis-x64-3.2.100.zip ; \
@@ -25,6 +26,3 @@ EXPOSE 6379
 CMD .\\redis-server.exe .\\redis.unprotected.conf --port 6379 ; \
     Write-Host Redis Started... ; \
     while ($true) { Start-Sleep -Seconds 3600 }
-
-# CMD [".\\redis-server.exe", ".\\redis.windows.conf"]
-
