@@ -4,9 +4,9 @@
 FROM microsoft/windowsservercore
 SHELL ["powershell"]
 RUN $ErrorActionPreference = 'Stop'; \
-    wget https://github.com/MSOpenTech/redis/releases/download/win-3.2.100/Redis-x64-3.2.100.msi -OutFile Redis-x64-3.2.100.msi ; \
-    Start-Process Redis-x64-3.2.100.msi -ArgumentList '/quiet InstallAllUsers=1 PrependPath=1' -Wait ; \
-    Remove-Item Redis-x64-3.2.100.msi -Force
+    wget https://github.com/MSOpenTech/redis/releases/download/win-3.2.100/Redis-x64-3.2.100.zip -OutFile Redis-x64-3.2.100.zip ; \
+    Expand-Archive Redis-x64-3.2.100.zip -dest 'C:\\Program Files\\Redis\\' ; \
+    Remove-Item Redis-x64-3.2.100.zip -Force
 
 RUN setx PATH '%PATH%;C:\\Program Files\\Redis\\'
 WORKDIR 'C:\\Program Files\\Redis\\'
@@ -22,7 +22,7 @@ RUN Get-Content redis.windows.conf | Where { $_ -notmatch 'bind 127.0.0.1' } | S
 EXPOSE 6379
 
 # Define our command to be run when launching the container
-CMD .\\redis-server.exe .\\redis.unprotected.conf --loglevel verbose --port 6379 ; \
+CMD .\\redis-server.exe .\\redis.unprotected.conf --port 6379 ; \
     Write-Host Redis Started... ; \
     while ($true) { Start-Sleep -Seconds 3600 }
 
